@@ -107,29 +107,7 @@ body{
   max-width:500px;
 }
 
-/* LIGHT SWEEP */
-.light-sweep{
-  position:absolute;
-  top:0;
-  left:-60%;
-  width:60%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(10,102,255,0.1),
-    rgba(255,255,255,0.18),
-    rgba(10,102,255,0.1),
-    transparent
-  );
-  transform:skewX(-20deg);
-  animation:sweep 2.5s linear infinite;
-}
 
-@keyframes sweep{
-  0%{left:-60%;}
-  100%{left:120%;}
-}
 
 /* BUTTON */
 .btn{
