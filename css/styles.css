@@ -7,14 +7,23 @@
 }
 
 /* BASE */
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:80px; /* FIX: prevents nav overlap on anchor scroll */
+}
 
 body{
-  margin:0;
   font-family:Arial;
   background:var(--bg);
   color:var(--text);
-  scroll-behavior:smooth;
+  padding-top:80px; /* FIX: space for fixed nav */
+  overflow-y:scroll; /* FIX: prevents layout shift */
 }
 
 /* LAYOUT SYSTEM */
@@ -35,18 +44,21 @@ body{
 .nav{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
+  height:80px;
   background:rgba(10,15,20,0.75);
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,0.06);
   z-index:1000;
+  will-change:transform; /* smoother rendering */
 }
 
 .nav .container{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 24px;
+  height:100%;
 }
 
 .nav a{
@@ -55,6 +67,7 @@ body{
   color:var(--text);
   font-size:0.9rem;
   letter-spacing:1px;
+  transition:0.3s;
 }
 
 .nav a:hover{
@@ -133,7 +146,6 @@ body{
 /* ABOUT */
 .about-text{
   max-width:800px;
-  text-align:left;
 }
 
 .about-text p{
@@ -171,6 +183,11 @@ body{
   background:var(--panel);
   border:1px solid rgba(255,255,255,0.06);
   overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
 }
 
 .card img{
